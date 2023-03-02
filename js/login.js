@@ -1,12 +1,12 @@
-document.getElementById("bank-submit").addEventListener("click", function () {
-  const firstInput = document.getElementById("first-input");
-  const firstText = firstInput.value;
-  firstInput.value = "";
+document.getElementById("submit-btn").addEventListener("click", function () {
+  const passField = document.getElementById("pass-field");
+  const passValue = passField.value;
+  passField.value = "";
 
-  const secondInput = document.getElementById("second-input");
-  const secondText = secondInput.value;
-  secondInput.value = "";
-  if (firstText === "lutfor@gmail.com" && secondText === "lutfor") {
+  const emailField = document.getElementById("email-field");
+  const emailValue = emailField.value;
+  emailField.value = "";
+  if (emailValue === "lutfor@gmail.com" && passValue === "lutfor") {
     window.location.href = "bank.html";
   } else {
     alert("Invalid User");

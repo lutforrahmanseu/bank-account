@@ -1,30 +1,31 @@
-//withdraw part
-document.getElementById("btn-withdraw").addEventListener("click", function () {
+document.getElementById("withdraw-btn").addEventListener("click", function () {
+  //step 2
   const withdrawField = document.getElementById("withdraw-field");
-  const withdrawText = withdrawField.value;
-  const withdrawString = parseFloat(withdrawText);
+  const withdrawFieldValue = withdrawField.value;
+  const withdrawValueString = parseFloat(withdrawFieldValue);
   withdrawField.value = "";
-
-  if (isNaN(withdrawString)) {
+  if (isNaN(withdrawValueString)) {
     alert("please a valid number");
     return;
   }
-
+  //step 3
   const withdrawAmount = document.getElementById("withdraw-amount");
-  const withdrawAmountText = withdrawAmount.innerText;
-  const withdrawAmountString = parseFloat(withdrawAmountText);
+  const withdrawText = withdrawAmount.innerText;
+  const withdrawTextString = parseFloat(withdrawText);
 
-  const balanceAmount = document.getElementById("balance-amount");
-  const balanceAmountText = balanceAmount.innerText;
-  const balanceAmountString = parseFloat(balanceAmountText);
+  //step 5
+  const balanceWithdraw = document.getElementById("balance-amount");
+  const balanceWithdrawText = balanceWithdraw.innerText;
+  const balanceWithdrawString = parseFloat(balanceWithdrawText);
 
-  if (withdrawString > balanceAmountString) {
-    alert("Can't be lifted");
+  if (withdrawValueString > balanceWithdrawString) {
+    alert("no");
     return;
   }
-  const totalWithdraw = withdrawAmountString + withdrawString;
+  //step 4
+  const totalWithdraw = withdrawTextString + withdrawValueString;
   withdrawAmount.innerText = totalWithdraw;
 
-  const newBalanceTotal = balanceAmountString - withdrawString;
-  balanceAmount.innerText = newBalanceTotal;
+  const totalBalanceWithdraw = balanceWithdrawString - withdrawValueString;
+  balanceWithdraw.innerText = totalBalanceWithdraw;
 });

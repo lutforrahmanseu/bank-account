@@ -1,23 +1,24 @@
-//deposit part
-document.getElementById("btn-deposit").addEventListener("click", function () {
+document.getElementById("deposit-btn").addEventListener("click", function () {
   const depositField = document.getElementById("deposit-field");
-  const depositValue = depositField.value;
-  const depositString = parseFloat(depositValue);
+
+  const depositFieldValue = depositField.value;
+  const depositFieldString = parseFloat(depositFieldValue);
   depositField.value = "";
-  if (isNaN(depositString)) {
+  if (isNaN(depositFieldString)) {
     alert("please a valid number");
     return;
   }
 
   const depositAmount = document.getElementById("deposit-amount");
   const depositAmountText = depositAmount.innerText;
-  const depositAmountString = parseFloat(depositAmountText);
+  const depositString = parseFloat(depositAmountText);
 
-  const totalDeposit = depositString + depositAmountString;
+  const totalDeposit = depositFieldString + depositString;
   depositAmount.innerText = totalDeposit;
+
   const balanceAmount = document.getElementById("balance-amount");
-  const balanceAmountText = balanceAmount.innerText;
-  const balanceAmountString = parseFloat(balanceAmountText);
-  const totalBalance = balanceAmountString + depositString;
-  balanceAmount.innerText = totalBalance;
+  const balanceAmountValue = balanceAmount.innerText;
+  const balanceString = parseFloat(balanceAmountValue);
+  const totalBalanceAmount = depositFieldString + balanceString;
+  balanceAmount.innerText = totalBalanceAmount;
 });
